@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>RetinaCare AI</h2>
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('upload') }}">Upload Image</a></li>
+            <li><a href="{{ url_for('history') }}">Prediction History</a></li>
+            <li><a href="{{ url_for('reports') }}">Reports</a></li>
+            <li><a href="{{ url_for('doctor') }}">Doctor Panel</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <h1>Prediction History</h1>
+    
+        {% if predictions %}
+        {% for p in predictions %}
+        <div class="history-item">
+            {{ p.date }} - {{ p.level }} ({{ p.risk_score }})
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No prediction history available.</p>
+        {% endif %}
+    
+    </div>
+
+</div>
+
+</body>
+</html>

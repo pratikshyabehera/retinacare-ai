@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Doctor Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <h2>RetinaCare AI</h2>
+            <ul>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('upload') }}">Upload Image</a></li>
+                <li><a href="{{ url_for('history') }}">Prediction History</a></li>
+                <li><a href="{{ url_for('reports') }}">Reports</a></li>
+                <li><a href="{{ url_for('doctor') }}">Doctor Panel</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="main">
+            <h1>Our Retina Specialists</h1>
+
+            <!-- SEARCH -->
+            <input type="text" id="searchDoctor" placeholder="Search Doctor..." onkeyup="filterDoctors()"
+                class="search-box">
+
+            <!-- DOCTOR GRID -->
+            <div class="doctor-grid" id="doctorGrid">
+
+                <!-- Doctor 1 -->
+                <div class="doctor-card">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg">
+                    <h3>Dr. Rahul Sharma</h3>
+                    <p>Ophthalmologist</p>
+                    <p>10+ Years Experience</p>
+                    <p class="rating">⭐⭐⭐⭐☆ (4.5)</p>
+                    <p class="available">Available Today</p>
+                    <button onclick="openModal('Dr. Rahul Sharma')">
+                        Book Appointment
+                    </button>
+                </div>
+
+                <!-- Doctor 2 -->
+                <div class="doctor-card">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg">
+                    <h3>Dr. Priya Verma</h3>
+                    <p>Retina Specialist</p>
+                    <p>8+ Years Experience</p>
+                    <p class="rating">⭐⭐⭐⭐⭐ (5.0)</p>
+                    <p class="available">Available Tomorrow</p>
+                    <button onclick="openModal('Dr. Priya Verma')">
+                        Book Appointment
+                    </button>
+                </div>
+
+                <!-- Doctor 3 -->
+                <div class="doctor-card">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg">
+                    <h3>Dr. Arjun Mehta</h3>
+                    <p>Diabetic Eye Expert</p>
+                    <p>12+ Years Experience</p>
+                    <p class="rating">⭐⭐⭐⭐☆ (4.7)</p>
+                    <p class="available">Available Today</p>
+                    <button onclick="openModal('Dr. Arjun Mehta')">
+                        Book Appointment
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- AI REPORT SECTION -->
+            <div class="card" style="margin-top:40px;">
+                <h3>Latest AI Report</h3>
+                <p id="doctorReport">No report available.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- APPOINTMENT MODAL -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content modern-modal">
+
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <h2 id="doctorName"></h2>
+
+            <h4>Select Appointment Date</h4>
+            <input type="date" id="appointmentDate" class="modern-input">
+
+            <h4>Select Time Slot</h4>
+
+            <div class="time-slots">
+                <button class="time-btn" onclick="selectTime(this)">10:00 AM</button>
+                <button class="time-btn" onclick="selectTime(this)">12:00 PM</button>
+                <button class="time-btn" onclick="selectTime(this)">3:00 PM</button>
+                <button class="time-btn" onclick="selectTime(this)">5:00 PM</button>
+            </div>
+
+            <br>
+            <button class="confirm-btn" onclick="confirmAppointment()">
+                Confirm Appointment
+            </button>
+
+            <p id="confirmationMessage"></p>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

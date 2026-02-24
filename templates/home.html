@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RetinalCare AI</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f9ff;
+        }
+
+        header {
+            background-color: #0077b6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            color: #023e8a;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #0077b6;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #005f8f;
+}
+
+        .form-section {
+            background-color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #023e8a;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>RetinalCare AI</h2>
+        <p>Early Detection of Diabetic Retinopathy Using AI</p>
+    </header>
+
+    <div class="hero">
+        <h1>Protect Your Vision with AI</h1>
+        <p>
+            RetinalCare AI helps detect early signs of Diabetic Retinopathy
+            using advanced deep learning technology. Get started by creating
+            your profile below.
+        </p>
+        <a href="{{ url_for('login') }}" class="btn">Get Started</a>
+    </div>
+
+    <div class="form-section" id="form">
+        <h2>Create Your Profile</h2>
+
+        <form method="POST" action="{{ url_for('register') }}">
+            <input type="text" name="name" placeholder="Enter your full name" required>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <input type="password" name="password" placeholder="Create password" required>
+            <button type="submit">Create Profile</button>
+        </form>
+    </div>
+
+    <footer>
+        © 2026 RetinalCare AI | AI for Better Vision
+    </footer>
+
+</body>
+
+</html>

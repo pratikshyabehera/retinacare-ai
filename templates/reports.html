@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+    <h2>RetinaCare AI</h2>
+    <ul>
+        <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li><a href="{{ url_for('upload') }}">Upload Image</a></li>
+        <li><a href="{{ url_for('history') }}">Prediction History</a></li>
+        <li><a href="{{ url_for('reports') }}">Reports</a></li>
+        <li><a href="{{ url_for('doctor') }}">Doctor Panel</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+</div>
+
+<div class="main">
+    <h1>Medical Reports</h1>
+    <p>Download PDF reports of your previous DR analysis.</p>
+
+    <div class="history-item">No Reports Available</div>
+</div>
+
+</div>
+
+</body>
+</html>

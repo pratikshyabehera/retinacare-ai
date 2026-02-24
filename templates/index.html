@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RetinaCare AI - DR Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="sidebar">
+            <h2>RetinaCare AI</h2>
+            <ul>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('upload') }}">Upload Image</a></li>
+                <li><a href="{{ url_for('history') }}">Prediction History</a></li>
+                <li><a href="{{ url_for('reports') }}">Reports</a></li>
+                <li><a href="{{ url_for('doctor') }}">Doctor Panel</a></li>
+            </ul>
+        </div>
+
+
+        <!-- MAIN -->
+        <div class="main">
+        
+            <h1>Diabetic Retinopathy Dashboard</h1>
+        
+            <!-- ✅ ADD THIS WELCOME CARD HERE -->
+            <div class="welcome-card">
+                <h2>Welcome back, {{ username }} 👁</h2>
+                <p>Your AI-powered retinal health monitoring dashboard is ready.</p>
+            </div>
+        
+            <!-- CARDS -->
+            <div class="cards">
+                <div class="card">
+                    <h3>Last Prediction</h3>
+                    <span id="lastPrediction">Level 1 - Mild</span>
+                </div>
+
+                <div class="card">
+                    <h3>Risk Score</h3>
+                    <span id="riskScore">45%</span>
+                </div>
+
+                <div class="card">
+                    <h3>Next Checkup</h3>
+                    <span>15 March 2026</span>
+                </div>
+            </div>
+
+            <!-- GRAPH + CALENDAR -->
+            <div class="flex-row">
+
+                <div class="chart-box">
+                    <h3>Disease Progression</h3>
+                    <canvas id="drChart"></canvas>
+                </div>
+
+                <div class="calendar">
+                    <h3>Checkup Calendar - March 2026</h3>
+                    <table>
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td class="checkup">4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td class="emergency">10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                        </tr>
+                    </table>
+                    <p class="blue">Blue = Normal Follow-up</p>
+                    <p class="red">Red = Emergency Visit</p>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

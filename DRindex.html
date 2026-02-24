@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetic Retinopathy Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Diabetic Retinopathy Detection System</h1>
+        <p>Early Prediction using Deep Learning</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Upload Section -->
+        <div class="card">
+            <h2>Upload Retinal Image</h2>
+            <form action="/predict" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" id="fileInput" required>
+                <button type="submit">Predict</button>
+            </form>
+            <img id="preview" src="#" alt="Image Preview" style="display:none;">
+        </div>
+
+        <!-- Result Section -->
+        {% if prediction %}
+        <div class="card result-card">
+            <h2>Prediction Result</h2>
+            <p><strong>Severity Level:</strong> {{ prediction }}</p>
+
+            <div class="progress">
+                <div class="progress-bar" style="width: {{ confidence }}%;">
+                    {{ confidence }}%
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+
+    <footer>
+        <p>© 2026 DR Detection System | AI & ML Project</p>
+    </footer>
+
+    <script>
+        document.getElementById("fileInput").onchange = function (evt) {
+            const [file] = this.files;
+            if (file) {
+                const preview = document.getElementById("preview");
+                preview.src = URL.createObjectURL(file);
+                preview.style.display = "block";
+            }
+        };
+    </script>
+
+</body>
+
+</html>

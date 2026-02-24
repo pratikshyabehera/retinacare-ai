@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Fundus Image - RetinaCare AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>RetinaCare AI</h2>
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('upload') }}">Upload Image</a></li>
+            <li><a href="{{ url_for('history') }}">Prediction History</a></li>
+            <li><a href="{{ url_for('reports') }}">Reports</a></li>
+            <li><a href="{{ url_for('doctor') }}">Doctor Panel</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+        <h1>Upload Fundus Image</h1>
+
+        <div class="upload-box">
+
+            <label>Select Retina Image:</label><br>
+            <input type="file" id="imageUpload" accept="image/*">
+
+            <br><br>
+
+            <img id="preview" width="300" style="display:none; border-radius:10px;">
+
+            <br>
+
+            <button onclick="predictDR()">Predict DR Level</button>
+
+            <div class="result" id="result"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

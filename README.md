@@ -1,1 +1,0 @@
-# retinacare-ai
